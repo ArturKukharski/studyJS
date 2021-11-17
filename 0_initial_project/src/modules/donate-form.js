@@ -20,7 +20,7 @@ export class DonateForm {
   render() {
     const totalAmount = document.createElement('h1')
     totalAmount.id = 'total-amount'
-    totalAmount.innerText = `0${currency}`
+    totalAmount.innerText = `${this.#totalAmount}${currency}`
 
     const donateFormLabel = document.createElement('label')
     donateFormLabel.className = 'donate-form__input-label'

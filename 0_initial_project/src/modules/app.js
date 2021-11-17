@@ -1,12 +1,24 @@
-import { DonateForm } from "./donate-form"
-import { DonateList } from "./donate-list";
+import { DonateForm } from './donate-form'
+import { DonateList } from './donate-list'
+import * as SpecialFunctions from '../core/utils/index'
+
+
+const mockDonates = [
+  { amount: 4, date: new Date() },
+  { amount: 20, date: new Date() },
+  { amount: 3, date: new Date() },
+  { amount: 1, date: new Date() },
+]
 
 export default class App {
   #donate
   #donateList
 
   constructor () {
-    this.state = {donates: [], totalAmount: 0}
+    this.state = {
+      donates: mockDonates,
+      totalAmount: SpecialFunctions.calculateSumOfNumbers(mockDonates.map(donate => donate.amount))
+    }
     this.#donate = new DonateForm(this.state.totalAmount, this.createNewDonate.bind(this))
     this.#donateList = new DonateList(this.state.donates) 
   }

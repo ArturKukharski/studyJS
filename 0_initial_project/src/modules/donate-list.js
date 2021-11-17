@@ -1,5 +1,5 @@
 import { CURRENCY as currency } from '../core/constants/setttings'
-
+import * as SpecialFunctions from '../core/utils/index'
 export class DonateList {
   #container
   #donates
@@ -14,7 +14,7 @@ export class DonateList {
     donates.map(donate => {
       const donateItem = document.createElement('div')
       donateItem.className = 'donate-item'
-      donateItem.innerText = `${donate.date} - `
+      donateItem.innerText = `${SpecialFunctions.getFormattedTime(donate.date)} - `
 
       const amount = document.createElement('b')
       amount.innerText = `${donate.amount}${currency}`
