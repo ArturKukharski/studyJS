@@ -1,3 +1,4 @@
+import { CURRENCY as currency } from '../core/constants/setttings'
 export class DonateForm {
   #container
   #totalAmount
@@ -12,18 +13,18 @@ export class DonateForm {
   updateTotalAmount(newAmount = 0) {
     this.#totalAmount = newAmount
     const totalAmount = document.querySelector('#total-amount')
-    totalAmount.innerText = `${this.#totalAmount}$`
+    totalAmount.innerText = `${this.#totalAmount}${currency}`
     return this.#totalAmount = newAmount
   }
 
   render() {
     const totalAmount = document.createElement('h1')
     totalAmount.id = 'total-amount'
-    totalAmount.innerText = '0$'
+    totalAmount.innerText = `0${currency}`
 
     const donateFormLabel = document.createElement('label')
     donateFormLabel.className = 'donate-form__input-label'
-    donateFormLabel.innerText = 'Введите сумму в $'
+    donateFormLabel.innerText = `Введите сумму в ${currency}`
 
     const donateFormInput = document.createElement('input')
     donateFormInput.className = 'donate-form__donate-input'

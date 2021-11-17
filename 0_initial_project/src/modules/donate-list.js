@@ -1,7 +1,8 @@
+import { CURRENCY as currency } from '../core/constants/setttings'
+
 export class DonateList {
   #container
   #donates
-  #createDonateElement
 
   constructor(donates) {
     this.#container = document.createElement('div')
@@ -16,7 +17,7 @@ export class DonateList {
       donateItem.innerText = `${donate.date} - `
 
       const amount = document.createElement('b')
-      amount.innerText = `${donate.amount}$`
+      amount.innerText = `${donate.amount}${currency}`
 
       donateItem.append(amount)
       container.append(donateItem)
